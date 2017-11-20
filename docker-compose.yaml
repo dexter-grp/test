@@ -10,11 +10,11 @@ services:
 
                 environment:
 
-                        MYSQL_ROOT_PASSWORD: dupa123
+                        MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
 
                 volumes:
 
-                        - "/home/nargal/docker/wordpress/mysql:/var/lib/mysql"
+                        - ${MYSQL_PATH}":/var/lib/mysql"
 
 
 
@@ -32,7 +32,7 @@ services:
 
                 environment:
 
-                        WORDPRESS_DB_PASSWORD: dupa123
+                        WORDPRESS_DB_PASSWORD: ${MYSQL_PASS}
 
                 depends_on:
 
