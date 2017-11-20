@@ -14,7 +14,7 @@ services:
 
                 volumes:
 
-                        - ${MYSQL_PATH}":/var/lib/mysql"
+                        - ${MYSQL_PATH}:/var/lib/mysql
 
 
 
