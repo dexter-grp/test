@@ -1,0 +1,53 @@
+version: '2'
+
+
+
+services:
+
+        wordpress-mysql:
+
+                image: mysql
+
+                environment:
+
+                        MYSQL_ROOT_PASSWORD: dupa123
+
+                volumes:
+
+                        - "/home/nargal/docker/wordpress/mysql:/var/lib/mysql"
+
+
+
+        wordpress:
+
+                image: wordpress
+
+                ports:
+
+                        - 5001:80
+
+                links:
+
+                        - wordpress-mysql:mysql
+
+                environment:
+
+                        WORDPRESS_DB_PASSWORD: dupa123
+
+                depends_on:
+
+                        - wordpress-mysql
+
+
+
+        wordpress-adminer:
+
+                image: adminer
+
+                ports:
+
+                        - 5002:8080
+
+                links:
+
+                        - wordpress-mysql:db
